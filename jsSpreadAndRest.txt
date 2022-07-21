@@ -1,0 +1,51 @@
+// languageOfUse = UK English
+
+        // SPREAD AND REST
+        /*
+        Spread and Rest are both Array manipulation operators
+        
+        SPREAD
+        Spread takes all the elements in an array and presents each element as a standalone element before doing an operation with that array.
+        For example, say you want to combine two arrays into one big array
+        Spread modifies/destructs the orginal array
+        */
+        const myArr = [1, 3, 4, 5]
+        const myArrTwo = [6, 7]
+        const bigArr = [...myArr, ...myArrTwo]
+        console.log(bigArr)
+        /*
+       REST
+       Normally used in a function and takes all arguments(no matter how many they are) and puts them into an array
+       When use with other arguments, it should be the last one.
+       For example, take a function that gives a total of all numbers specified by the user
+        */
+       function adder(...numbers){// so that the function can take as many arguments as possible
+           let sum = 0
+           for(let number of numbers){// we can loop here because numbersis an array
+               sum = sum + number
+           }
+           return sum
+        }
+
+        console.log(adder(1,2))
+        console.log(adder(5,2,7,20)) 
+
+        // USE CASES
+        // SPREAD
+        /*
+        Used in methods or functions that expect list of arguments rather than an array. 
+        for example Math.min()
+        */
+
+        const arr = [100, 10, 6, 98]
+        console.log(Math.min(arr)) // output "NaN"
+        console.log(Math.min(...arr)) // output 6
+
+       // REST
+       /*
+       Write a function that takes several numbers from the user and returns the square root of each number
+       */
+       function squareRoot(...userArgs){ //we convert user arguments to an array because we want to use an array method forEach()
+           userArgs.forEach( num => console.log(Math.sqrt(num)))                   
+       }
+       squareRoot(1, 80, 60, 70)
